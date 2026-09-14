@@ -14,6 +14,7 @@
   "devDependencies": {
     "@trunkio/launcher": "^1.3.4",
     "@types/bun": "^1.4.2",
+    "npm-run-all2": "^9.0.3",
     "prettier": "^3.9.6",
     "skilld": "^2.3.0",
     "vitest": "^5.0.0"
@@ -29,11 +30,13 @@
     "url": "git+https://github.com/synmux/tag.git"
   },
   "scripts": {
+    "build": "bun build --production --compile --outfile=bin/tag src/index.ts",
     "format": "bun run prettier --write . && bun run trunk fmt -a",
     "lint": "bun run trunk check -a",
     "lint:fix": "bun run trunk check -a --fix",
     "lint:types": "bun run tsc --noEmit",
-    "start": "bun run index.ts",
+    "start": "bun run run-s build start:exec",
+    "start:exec": "bin/tag",
     "test": "bun run vitest run",
     "prepare": "skilld prepare || true"
   },
