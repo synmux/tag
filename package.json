@@ -5,7 +5,7 @@
     "url": "https://github.com/synmux"
   },
   "bin": {
-    "tag": "index.ts"
+    "tag": "src/index.ts"
   },
   "dependencies": {
     "@scure/bip39": "^2.4.0",
@@ -16,13 +16,12 @@
     "@types/bun": "^1.4.2",
     "npm-run-all2": "^9.0.3",
     "prettier": "^3.9.6",
-    "skilld": "^2.3.0",
-    "vitest": "^5.0.0"
+    "skilld": "^2.3.0"
   },
   "engines": {
     "bun": "^1.4.2"
   },
-  "module": "index.ts",
+  "module": "src/index.ts",
   "name": "@synmux/tag",
   "private": true,
   "repository": {
@@ -37,7 +36,7 @@
     "lint:types": "bun run tsc --noEmit",
     "start": "bun run run-s build start:exec",
     "start:exec": "bin/tag",
-    "test": "bun run vitest run",
+    "test": "bun test",
     "prepare": "skilld prepare || true"
   },
   "trustedDependencies": [

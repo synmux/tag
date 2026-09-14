@@ -11,10 +11,10 @@ import {
   quadFromBytes,
   quadFromUint16s,
   quadWordlist,
-} from "../simple/quad.ts";
+} from "../src/quad.ts";
 
 const QUAD_PATTERN = /^[a-z]+(?:-[a-z]+){3}$/;
-const ENTRYPOINT = join(import.meta.dir, "index.ts");
+const ENTRYPOINT = join(import.meta.dir, "..", "src", "index.ts");
 
 let scratchDirectory: string;
 let helloFilePath: string;
