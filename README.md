@@ -11,7 +11,7 @@ tag                 # random quad from the CSPRNG, e.g. hurdle-glare-nation-wris
 tag dist/app.js     # quad derived from the file's SHA-256; same bytes, same quad
 ```
 
-Without `bun link`, use `bun run index.ts [filename]`.
+Without `bun link`, use `bun src/index.ts [filename]`. Pass `--help` for usage.
 
 Random quads carry 44 bits of entropy (four uniform draws from 2048 words).
 File quads take the first 8 bytes of the SHA-256 digest, two bytes per word,
@@ -23,5 +23,5 @@ Tests and typecheck:
 
 ```bash
 bun test
-bun run typecheck
+bun run lint:types
 ```
