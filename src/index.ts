@@ -1,29 +1,12 @@
-#!/usr/bin/env bun
-import { generateQuad, quadForFile } from "./quad.ts";
+import { program } from "commander";
 
-const USAGE =
-  "Usage: tag [filename]\n\nWith no argument, prints a random quad. With a filename, prints the quad derived from the file's SHA-256.";
+program.option("--first").option("-s, --separator <char>").argument("<string>");
 
-async function main(argv: readonly string[]): Promise<number> {
-  const [filePath, ...extraArguments] = argv;
+program.parse();
 
-  if (extraArguments.length > 0) {
-    console.error(USAGE);
-    return 2;
-  }
+const options = program.opts();
+const limit = options.first ? 1 : undefined;
 
-  if (filePath === undefined) {
-    console.log(generateQuad());
-    return 0;
-  }
-
-  try {
-    console.log(await quadForFile(filePath));
-    return 0;
-  } catch (error) {
-    console.error(error instanceof Error ? error.message : String(error));
-    return 1;
-  }
+if (program.args && program.args[0]) {
+  console.log(program.args[0].split(options.separator, limit));
 }
-
-process.exitCode = await main(process.argv.slice(2));

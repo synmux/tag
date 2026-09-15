@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@scure/bip39": "^2.4.0",
+    "commander": "^15.0.0",
     "typescript": "^7.0.2"
   },
   "devDependencies": {
@@ -34,8 +35,7 @@
     "lint": "bun run trunk check -a",
     "lint:fix": "bun run trunk check -a --fix",
     "lint:types": "bun run tsc --noEmit",
-    "start": "bun run run-s build start:exec",
-    "start:exec": "bin/tag",
+    "start": "bun src/index.ts",
     "test": "bun test",
     "prepare": "skilld prepare || true"
   },

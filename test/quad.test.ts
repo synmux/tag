@@ -11,7 +11,7 @@ import {
   quadFromBytes,
   quadFromUint16s,
   quadWordlist,
-} from "../src/quad.ts";
+} from "../src/lib/quad.ts";
 
 const QUAD_PATTERN = /^[a-z]+(?:-[a-z]+){3}$/;
 const ENTRYPOINT = join(import.meta.dir, "..", "src", "index.ts");
