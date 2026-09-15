@@ -2,6 +2,8 @@ import { afterAll, beforeAll, describe, expect, test } from "bun:test";
 import { mkdtemp, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+
+import packageJson from "../package.json" with { type: "json" };
 import {
   BYTES_PER_QUAD,
   QUAD_ENTROPY_BITS,
@@ -163,6 +165,12 @@ describe("cli", () => {
     expect(exitCode).toBe(1);
     expect(stdout).toBe("");
     expect(stderr).toContain("File not found");
+  });
+
+  test("prints the package version for --version", async () => {
+    const { stdout, exitCode } = await runCli("--version");
+    expect(exitCode).toBe(0);
+    expect(stdout.trimEnd()).toBe(packageJson.version);
   });
 
   test("exits 2 with usage for extra arguments", async () => {

@@ -1,6 +1,7 @@
 #!/usr/bin/env bun
 import { Command, CommanderError } from "commander";
 
+import packageJson from "../package.json" with { type: "json" };
 import { generateQuad, quadForFile } from "./lib/quad.ts";
 
 /** Exit code when a file cannot be read or hashed. */
@@ -21,6 +22,7 @@ function exitFromCommanderError(error: CommanderError): never {
 export function buildProgram(): Command {
   return new Command()
     .name("tag")
+    .version(packageJson.version)
     .usage("[filename]")
     .description(
       "Print a word-word-word-word slug drawn from the BIP-39 English wordlist.\n" +
