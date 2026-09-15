@@ -21,7 +21,7 @@ function exitFromCommanderError(error: CommanderError): never {
 
 export function buildProgram(): Command {
   return new Command()
-    .name("tag")
+    .name("tg")
     .version(packageJson.version)
     .usage("[filename]")
     .description(

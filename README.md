@@ -1,14 +1,14 @@
-# tag
+# `@synmux/tg`
 
 Prints one `word-word-word-word` slug drawn from the BIP-39 English wordlist
 (2048 words). Intended for human-readable version tags.
 
 ```bash
 bun install
-bun link            # optional: puts `tag` on your PATH
+bun link            # optional: puts `tg` on your PATH
 
-tag                 # random quad from the CSPRNG, e.g. hurdle-glare-nation-wrist
-tag dist/app.js     # quad derived from the file's SHA-256; same bytes, same quad
+tg                 # random quad from the CSPRNG, e.g. hurdle-glare-nation-wrist
+tg dist/app.js     # quad derived from the file's SHA-256; same bytes, same quad
 ```
 
 Without `bun link`, use `bun src/index.ts [filename]`. Pass `--help` for usage.

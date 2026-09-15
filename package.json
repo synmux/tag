@@ -5,7 +5,7 @@
     "url": "https://github.com/synmux"
   },
   "bin": {
-    "tag": "src/index.ts"
+    "tg": "src/index.ts"
   },
   "dependencies": {
     "@scure/bip39": "^2.4.0",
@@ -23,20 +23,20 @@
     "bun": "^1.4.2"
   },
   "module": "src/index.ts",
-  "name": "@synmux/tag",
+  "name": "@synmux/tg",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/synmux/tag.git"
+    "url": "git+https://github.com/synmux/tg.git"
   },
   "scripts": {
-    "build": "bun build --production --compile --outfile=bin/tag src/index.ts",
+    "build": "bun build --production --compile --outfile=bin/tg src/index.ts",
     "format": "bun run prettier --write . && bun run trunk fmt -a",
     "lint": "bun run trunk check -a",
     "lint:fix": "bun run trunk check -a --fix",
     "lint:types": "bun run tsc --noEmit",
     "start": "bun src/index.ts",
-    "start:exec": "bin/tag",
+    "start:exec": "bin/tg",
     "test": "bun test",
     "prepare": "skilld prepare || true"
   },

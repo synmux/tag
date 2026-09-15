@@ -1,4 +1,4 @@
-# Agent guidance for `tag`
+# Agent guidance for `tg`
 
 Default to using Bun instead of Node.js.
 

@@ -23,7 +23,7 @@ let helloFilePath: string;
 let worldFilePath: string;
 
 beforeAll(async () => {
-  scratchDirectory = await mkdtemp(join(tmpdir(), "tag-test-"));
+  scratchDirectory = await mkdtemp(join(tmpdir(), "tg-test-"));
   helloFilePath = join(scratchDirectory, "hello.txt");
   worldFilePath = join(scratchDirectory, "world.txt");
   await Bun.write(helloFilePath, "hello\n");
@@ -176,6 +176,6 @@ describe("cli", () => {
   test("exits 2 with usage for extra arguments", async () => {
     const { stderr, exitCode } = await runCli(helloFilePath, worldFilePath);
     expect(exitCode).toBe(2);
-    expect(stderr).toContain("Usage: tag [filename]");
+    expect(stderr).toContain("Usage: tg [filename]");
   });
 });
